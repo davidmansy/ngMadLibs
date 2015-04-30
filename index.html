@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>ngMadLibs</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body ng-init="maleName = 'Male name';
+              jobTitle = 'Job title';
+              tediousTask = 'Tedious task';
+              dirtyTask = 'Dirty task';
+              celebrity = 'Celebrity';
+              uselessSkill = 'Useless Skill';
+              obnoxiousCelebrity = 'Obnoxious Celebrity';
+              hugeNumber = 'Huge Number';
+              adjective = 'Adjective';
+              ">
+<div class="container">
+  <div class="row main-row">
+    <div class="col-sm-3">
+      <img ng-src="assets/images/mad-lib-happy-face.png" alt="Happy Face" class="img-responsive center-block face"/>
+    </div>
+    <div class="col-sm-9">
+      <img ng-src="assets/images/ng-mad-libs-logo.png" alt="Logo" class="img-responsive center-block logo"/>
+
+      <div class="title">Automate This!</div>
+    </div>
+  </div>
+  <div class="row main-row">
+    <div class="col-sm-12">
+      <div class="words">
+        <p>Provide the following words:</p>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <input ng-model="maleName" type="text" placeholder="Male name"/>
+            <input ng-model="jobTitle" type="text" placeholder="Job Title"/>
+            <input ng-model="tediousTask" type="text" placeholder="Tedious task"/>
+          </div>
+          <div class="col-sm-4">
+            <input ng-model="dirtyTask" type="text" placeholder="Dirty task"/>
+            <input ng-model="celebrity" type="text" placeholder="Celebrity"/>
+            <input ng-model="uselessSkill" type="text" placeholder="Useless Skill"/>
+          </div>
+          <div class="col-sm-4">
+            <input ng-model="obnoxiousCelebrity" type="text" placeholder="Obnoxious celebrity"/>
+            <input ng-model="hugeNumber" type="text" placeholder="Huge number"/>
+            <input ng-model="adjective" type="text" placeholder="Adjective"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row main-row">
+    <div class="words">
+      <div class="col-sm-12">
+        <p>
+          <span class="word">{{maleName}}</span> was a <span class="word">{{jobTitle}}</span> who loved technology.
+          Although she loved parts of her job, she absolutely
+          hated <span class="word">{{tediousTask}}</span> and <span class="word">{{dirtyTask}}</span>.
+          So, <span class="word">{{maleName}}</span> met with her life mentor <span class="word">{{celebrity}}</span>
+          who told
+          her to learn how to <span class="word">{{uselessSkill}}</span> with Thinkful. Thinkful didn't
+          offer a course on <span class="word">{{uselessSkill}}</span> so
+          she studied programming instead.
+        </p>
+
+        <p>
+          What a great decision! With her new skills, <span class="word">{{maleName}}</span> built a(n)
+          <span class="word">{{adjective}}</span> robot named
+          {{obnoxiuousCelebrity}} that not only loved <span class="word">{{dirtyTask}}</span> but did it
+          <span class="word">{{hugeNumber}}</span> faster.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+</body>
+</html>
