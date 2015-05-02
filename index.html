@@ -1,21 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="app">
 <head lang="en">
   <meta charset="UTF-8">
   <title>ngMadLibs</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
-<body ng-init="maleName = 'Male name';
-              jobTitle = 'Job title';
-              tediousTask = 'Tedious task';
-              dirtyTask = 'Dirty task';
-              celebrity = 'Celebrity';
-              uselessSkill = 'Useless Skill';
-              obnoxiousCelebrity = 'Obnoxious Celebrity';
-              hugeNumber = 'Huge Number';
-              adjective = 'Adjective';
-              ">
+<body ng-controller="Main as vm">
 <div class="container">
   <div class="row">
     <div class="col-sm-3 left-cell">
@@ -31,56 +22,60 @@
     <div class="col-sm-12 words">
       <form>
         <p>Provide the following words:</p>
-
+        <div class="form-group col-sm-12">
+          <label class="control-label" for="gender">Gender</label>
+          <input type="text" class="form-control" id="gender" placeholder="Gender"
+                 ng-model="vm.gender">
+        </div>
         <div class="col-sm-4">
           <div class="form-group">
             <label class="sr-only" for="maleName">Male name</label>
             <input type="text" class="form-control" id="maleName" placeholder="Male name"
-                   ng-model="maleName">
+                   ng-model="vm.maleName">
           </div>
           <div class="form-group">
             <label class="sr-only" for="jobTitle">Job title</label>
             <input type="text" class="form-control" id="jobTitle" placeholder="Job title"
-                   ng-model="jobTitle">
+                   ng-model="vm.jobTitle">
           </div>
           <div class="form-group">
             <label class="sr-only" for="tediousTask">Tedious task</label>
             <input type="text" class="form-control" id="tediousTask" placeholder="Tedious task"
-                   ng-model="tediousTask">
+                   ng-model="vm.tediousTask">
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group">
             <label class="sr-only" for="dirtyTask">Dirty task</label>
             <input type="text" class="form-control" id="dirtyTask" placeholder="Dirty task"
-                   ng-model="dirtyTask">
+                   ng-model="vm.dirtyTask">
           </div>
           <div class="form-group">
             <label class="sr-only" for="celebrity">Celebrity</label>
             <input type="text" class="form-control" id="celebrity" placeholder="Celebrity"
-                   ng-model="celebrity">
+                   ng-model="vm.celebrity">
           </div>
           <div class="form-group">
             <label class="sr-only" for="uselessSkill">Useless Skill</label>
             <input type="text" class="form-control" id="uselessSkill" placeholder="Useless Skill"
-                   ng-model="uselessSkill">
+                   ng-model="vm.uselessSkill">
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group">
             <label class="sr-only" for="obnoxiousCelebrity">Obnoxious celebrity</label>
             <input type="text" class="form-control" id="obnoxiousCelebrity" placeholder="Obnoxious celebrity"
-                   ng-model="obnoxiousCelebrity">
+                   ng-model="vm.obnoxiousCelebrity">
           </div>
           <div class="form-group">
             <label class="sr-only" for="hugeNumber">Huge number</label>
             <input type="text" class="form-control" id="hugeNumber" placeholder="Huge number"
-                   ng-model="hugeNumber">
+                   ng-model="vm.hugeNumber">
           </div>
           <div class="form-group">
             <label class="sr-only" for="adjective">Adjective</label>
             <input type="text" class="form-control" id="adjective" placeholder="Adjective"
-                   ng-model="adjective">
+                   ng-model="vm.adjective">
           </div>
         </div>
       </form>
@@ -89,21 +84,21 @@
   <div class="row">
     <div class="col-sm-12 words">
       <p>
-        <span class="word">{{maleName}}</span> was a <span class="word">{{jobTitle}}</span> who loved technology.
+        <span class="word">{{vm.maleName}}</span> was a <span class="word">{{vm.jobTitle}}</span> who loved technology.
         Although she loved parts of her job, she absolutely
-        hated <span class="word">{{tediousTask}}</span> and <span class="word">{{dirtyTask}}</span>.
-        So, <span class="word">{{maleName}}</span> met with her life mentor <span class="word">{{celebrity}}</span>
+        hated <span class="word">{{vm.tediousTask}}</span> and <span class="word">{{vm.dirtyTask}}</span>.
+        So, <span class="word">{{vm.maleName}}</span> met with her life mentor <span class="word">{{vm.celebrity}}</span>
         who told
-        her to learn how to <span class="word">{{uselessSkill}}</span> with Thinkful. Thinkful didn't
-        offer a course on <span class="word">{{uselessSkill}}</span> so
+        her to learn how to <span class="word">{{vm.uselessSkill}}</span> with Thinkful. Thinkful didn't
+        offer a course on <span class="word">{{vm.uselessSkill}}</span> so
         she studied programming instead.
       </p>
 
       <p>
-        What a great decision! With her new skills, <span class="word">{{maleName}}</span> built a(n)
-        <span class="word">{{adjective}}</span> robot named
-        {{obnoxiuousCelebrity}} that not only loved <span class="word">{{dirtyTask}}</span> but did it
-        <span class="word">{{hugeNumber}}</span> faster.
+        What a great decision! With her new skills, <span class="word">{{vm.maleName}}</span> built a(n)
+        <span class="word">{{vm.adjective}}</span> robot named
+        {{obnoxiuousCelebrity}} that not only loved <span class="word">{{vm.dirtyTask}}</span> but did it
+        <span class="word">{{vm.hugeNumber}}</span> faster.
       </p>
     </div>
   </div>
@@ -111,5 +106,6 @@
 </div>
 
 <script src="bower_components/angular/angular.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
