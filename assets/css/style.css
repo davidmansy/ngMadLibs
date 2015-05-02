@@ -3,9 +3,9 @@ body {
   font-size: x-large;
 }
 
-input {
-  margin: 0.2em;
-}
+/*input {*/
+  /*margin: 0.2em;*/
+/*}*/
 
 .container {
   max-width: 70%;
@@ -13,13 +13,13 @@ input {
   border: 1px solid black;
 }
 
-.main-row {
+.row {
   border-bottom: 1px solid black;
 }
 
-/*div[class^="col"] {*/
-  /*border: 1px solid black;*/
-/*}*/
+.left-cell {
+  border-right: 1px solid black;
+}
 
 .face {
   max-width: 60%;
