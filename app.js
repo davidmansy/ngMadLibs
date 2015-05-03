@@ -5,7 +5,7 @@
  */
 
 angular
-  .module('app', [])
+  .module('app', ['ngMessages'])
   .controller('Main', Main);
 
 function Main($scope) {
@@ -35,4 +35,14 @@ function Main($scope) {
   vm.obnoxiousCelebrity = 'Obnoxious Celebrity';
   vm.hugeNumber = 'Huge Number';
   vm.adjective = 'Adjective';
+
+  vm.displayForm = true;
+
+  vm.generateMadLib = function() {
+    vm.toggleView();
+  };
+
+  vm.toggleView = function() {
+    vm.displayForm = !vm.displayForm;
+  };
 }

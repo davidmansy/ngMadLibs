@@ -5,6 +5,7 @@
   <title>ngMadLibs</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body ng-controller="Main as vm">
 <div class="container">
@@ -18,105 +19,113 @@
       <div class="title">Automate This!</div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-show="vm.displayForm">
     <div class="col-sm-12 words">
-      <form>
+      <form name="wordsForm" novalidate ng-submit="vm.generateMadLib()">
         <p>Provide the following words:</p>
 
-        <div class="form-group col-sm-12 form-group-lg">
-          <div class="radio">
-            <label>
-              <input type="radio" name="gender" id="male" ng-model="vm.gender" ng-value="vm.male" checked>
-              Male
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="gender" id="female" ng-model="vm.gender" ng-value="vm.female">
-              Female
-            </label>
-          </div>
+        <div class="form-group col-sm-12">
+          <label class="radio-inline">
+            <input type="radio" name="gender" id="male" ng-model="vm.gender" ng-value="vm.male" checked> Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="gender" id="female" ng-model="vm.gender" ng-value="vm.female"> Female
+          </label>
         </div>
         <div class="col-sm-4">
           <div class="form-group form-group-lg">
             <label class="sr-only" for="name">Name</label>
             <input type="text" class="form-control" id="name" placeholder="Name"
-                   ng-model="vm.name">
+                   ng-model="vm.name" required>
           </div>
           <div class="form-group form-group-lg">
             <label class="sr-only" for="jobTitle">Job title</label>
             <input type="text" class="form-control" id="jobTitle" placeholder="Job title"
-                   ng-model="vm.jobTitle">
+                   ng-model="vm.jobTitle" required>
           </div>
           <div class="form-group form-group-lg">
             <label class="sr-only" for="tediousTask">Tedious task</label>
             <input type="text" class="form-control" id="tediousTask" placeholder="Tedious task"
-                   ng-model="vm.tediousTask">
+                   ng-model="vm.tediousTask" required>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group form-group-lg">
             <label class="sr-only" for="dirtyTask">Dirty task</label>
             <input type="text" class="form-control" id="dirtyTask" placeholder="Dirty task"
-                   ng-model="vm.dirtyTask">
+                   ng-model="vm.dirtyTask" required>
           </div>
           <div class="form-group form-group-lg">
             <label class="sr-only" for="celebrity">Celebrity</label>
             <input type="text" class="form-control" id="celebrity" placeholder="Celebrity"
-                   ng-model="vm.celebrity">
+                   ng-model="vm.celebrity" required>
           </div>
           <div class="form-group form-group-lg">
             <label class="sr-only" for="uselessSkill">Useless Skill</label>
             <input type="text" class="form-control" id="uselessSkill" placeholder="Useless Skill"
-                   ng-model="vm.uselessSkill">
+                   ng-model="vm.uselessSkill" required>
           </div>
         </div>
         <div class="col-sm-4">
           <div class="form-group form-group-lg">
             <label class="sr-only" for="obnoxiousCelebrity">Obnoxious celebrity</label>
             <input type="text" class="form-control" id="obnoxiousCelebrity" placeholder="Obnoxious celebrity"
-                   ng-model="vm.obnoxiousCelebrity">
+                   ng-model="vm.obnoxiousCelebrity" required>
           </div>
           <div class="form-group form-group-lg">
             <label class="sr-only" for="hugeNumber">Huge number</label>
             <input type="text" class="form-control" id="hugeNumber" placeholder="Huge number"
-                   ng-model="vm.hugeNumber">
+                   ng-model="vm.hugeNumber" required>
           </div>
           <div class="form-group form-group-lg">
             <label class="sr-only" for="adjective">Adjective</label>
             <input type="text" class="form-control" id="adjective" placeholder="Adjective"
-                   ng-model="vm.adjective">
+                   ng-model="vm.adjective" required>
           </div>
+        </div>
+        <hr/>
+        <div class="col-sm-4 col-sm-offset-8">
+          <button type="submit" class="btn btn-primary pull-right">Generate My Mad Lib</button>
         </div>
       </form>
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-hide="vm.displayForm">
     <div class="col-sm-12 words">
-      <p>
-        <span class="word">{{vm.name}}</span> was a <span class="word">{{vm.jobTitle}}</span> who loved technology.
-        Although {{vm.gender.he}} loved parts of {{vm.gender.him}} job, {{vm.gender.he}} absolutely
-        hated <span class="word">{{vm.tediousTask}}</span> and <span class="word">{{vm.dirtyTask}}</span>.
-        So, <span class="word">{{vm.name}}</span> met with {{vm.gender.his}} life mentor <span
-              class="word">{{vm.celebrity}}</span>
-        who told
-        {{vm.gender.him}} to learn how to <span class="word">{{vm.uselessSkill}}</span> with Thinkful. Thinkful didn't
-        offer a course on <span class="word">{{vm.uselessSkill}}</span> so
-        {{vm.gender.he}} studied programming instead.
-      </p>
+      <div class="col-sm-12">
+        <p>
+          <span class="word">{{vm.name}}</span> was a <span class="word">{{vm.jobTitle}}</span> who loved technology.
+          Although {{vm.gender.he}} loved parts of {{vm.gender.him}} job, {{vm.gender.he}} absolutely
+          hated <span class="word">{{vm.tediousTask}}</span> and <span class="word">{{vm.dirtyTask}}</span>.
+          So, <span class="word">{{vm.name}}</span> met with {{vm.gender.his}} life mentor <span
+                class="word">{{vm.celebrity}}</span>
+          who told
+          {{vm.gender.him}} to learn how to <span class="word">{{vm.uselessSkill}}</span> with Thinkful. Thinkful didn't
+          offer a course on <span class="word">{{vm.uselessSkill}}</span> so
+          {{vm.gender.he}} studied programming instead.
+        </p>
+      </div>
 
-      <p>
-        What a great decision! With {{vm.gender.his}} new skills, <span class="word">{{vm.name}}</span> built a(n)
-        <span class="word">{{vm.adjective}}</span> robot named
-        {{obnoxiuousCelebrity}} that not only loved <span class="word">{{vm.dirtyTask}}</span> but did it
-        <span class="word">{{vm.hugeNumber}}</span> faster.
-      </p>
+      <div class="col-sm-12">
+        <p>
+          What a great decision! With {{vm.gender.his}} new skills, <span class="word">{{vm.name}}</span> built a(n)
+          <span class="word">{{vm.adjective}}</span> robot named
+          {{obnoxiuousCelebrity}} that not only loved <span class="word">{{vm.dirtyTask}}</span> but did it
+          <span class="word">{{vm.hugeNumber}}</span> faster.
+        </p>
+      </div>
+
+      <div class="col-sm-4 col-sm-offset-8">
+        <button type="button" ng-click="vm.toggleView()" class="btn btn-primary pull-right">Start Over</button>
+      </div>
     </div>
+
   </div>
 
 </div>
 
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
