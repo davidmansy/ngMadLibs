@@ -19,12 +19,14 @@
       <div class="title">Automate This!</div>
     </div>
   </div>
-  <div class="row" ng-show="vm.displayForm">
-    <div class="col-sm-12 words">
+  <div class="row">
+
+    <!--BEGIN Words Form-->
+    <div class="col-sm-12 words" ng-show="vm.displayForm">
       <form name="wordsForm" novalidate ng-submit="vm.generateMadLib()">
         <p>Provide the following words:</p>
 
-        <div class="form-group col-sm-12">
+        <div class="form-group form-group-lg col-sm-12">
           <label class="radio-inline">
             <input type="radio" name="gender" id="male" ng-model="vm.gender" ng-value="vm.male" checked> Male
           </label>
@@ -33,65 +35,93 @@
           </label>
         </div>
         <div class="col-sm-4">
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name"
+          <div class="form-group form-group-lg"
+               ng-class="{'has-error has-feedback' : vm.isInvalid('name')}">
+            <input type="text" class="form-control input-lg" name="name" placeholder="Name"
                    ng-model="vm.name" required>
+            <span ng-if="vm.isInvalid('name')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('name', 'required')" class="help-block error-block">Required field!</span>
           </div>
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="jobTitle">Job title</label>
-            <input type="text" class="form-control" id="jobTitle" placeholder="Job title"
+          <div class="form-group form-group-lg"
+               ng-class="{'has-error has-feedback' : vm.isInvalid('jobTitle')}">
+            <input type="text" class="form-control input-lg" name="jobTitle" placeholder="Job title"
                    ng-model="vm.jobTitle" required>
+            <span ng-if="vm.isInvalid('jobTitle')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('jobTitle', 'required')" class="help-block error-block">Required field!</span>
           </div>
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="tediousTask">Tedious task</label>
-            <input type="text" class="form-control" id="tediousTask" placeholder="Tedious task"
+          <div class="form-group form-group-lg"
+            ng-class="{'has-error has-feedback' : vm.isInvalid('tediousTask')}">
+            <input type="text" class="form-control input-lg" name="tediousTask" placeholder="Tedious task"
                    ng-model="vm.tediousTask" required>
+            <span ng-if="vm.isInvalid('tediousTask')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('tediousTask', 'required')" class="help-block error-block">Required field!</span>
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="dirtyTask">Dirty task</label>
-            <input type="text" class="form-control" id="dirtyTask" placeholder="Dirty task"
+          <div class="form-group form-group-lg"
+            ng-class="{'has-error has-feedback' : vm.isInvalid('dirtyTask')}">
+            <input type="text" class="form-control input-lg" name="dirtyTask" placeholder="Dirty task"
                    ng-model="vm.dirtyTask" required>
+            <span ng-if="vm.isInvalid('dirtyTask')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('dirtyTask', 'required')" class="help-block error-block">Required field!</span>
           </div>
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="celebrity">Celebrity</label>
-            <input type="text" class="form-control" id="celebrity" placeholder="Celebrity"
+          <div class="form-group form-group-lg"
+            ng-class="{'has-error has-feedback' : vm.isInvalid('celebrity')}">
+            <input type="text" class="form-control input-lg" name="celebrity" placeholder="Celebrity"
                    ng-model="vm.celebrity" required>
+            <span ng-if="vm.isInvalid('celebrity')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('celebrity', 'required')" class="help-block error-block">Required field!</span>
           </div>
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="uselessSkill">Useless Skill</label>
-            <input type="text" class="form-control" id="uselessSkill" placeholder="Useless Skill"
+          <div class="form-group form-group-lg"
+            ng-class="{'has-error has-feedback' : vm.isInvalid('uselessSkill')}">
+            <input type="text" class="form-control input-lg" name="uselessSkill" placeholder="Useless Skill"
                    ng-model="vm.uselessSkill" required>
+            <span ng-if="vm.isInvalid('uselessSkill')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('uselessSkill', 'required')" class="help-block error-block">Required field!</span>
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="obnoxiousCelebrity">Obnoxious celebrity</label>
-            <input type="text" class="form-control" id="obnoxiousCelebrity" placeholder="Obnoxious celebrity"
+          <div class="form-group form-group-lg"
+            ng-class="{'has-error has-feedback' : vm.isInvalid('obnoxiousCelebrity')}">
+            <input type="text" class="form-control input-lg" name="obnoxiousCelebrity" placeholder="Obnoxious celebrity"
                    ng-model="vm.obnoxiousCelebrity" required>
+            <span ng-if="vm.isInvalid('obnoxiousCelebrity')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('obnoxiousCelebrity', 'required')" class="help-block error-block">Required field!</span>
           </div>
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="hugeNumber">Huge number</label>
-            <input type="text" class="form-control" id="hugeNumber" placeholder="Huge number"
+          <div class="form-group form-group-lg"
+            ng-class="{'has-error has-feedback' : vm.isInvalid('hugeNumber')}">
+            <input type="number" class="form-control input-lg" name="hugeNumber" placeholder="Huge number"
                    ng-model="vm.hugeNumber" required>
+            <span ng-if="vm.isInvalid('hugeNumber')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('hugeNumber', 'required')" class="help-block error-block">Required field!</span>
+            <span ng-if="vm.hasError('hugeNumber', 'number')" class="help-block error-block">Must be a number!</span>
           </div>
-          <div class="form-group form-group-lg">
-            <label class="sr-only" for="adjective">Adjective</label>
-            <input type="text" class="form-control" id="adjective" placeholder="Adjective"
+          <div class="form-group form-group-lg"
+            ng-class="{'has-error has-feedback' : vm.isInvalid('adjective')}">
+            <input type="text" class="form-control input-lg" name="adjective" placeholder="Adjective"
                    ng-model="vm.adjective" required>
+            <span ng-if="vm.isInvalid('adjective')"
+                  class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-if="vm.hasError('adjective', 'required')" class="help-block error-block">Required field!</span>
           </div>
         </div>
-        <hr/>
         <div class="col-sm-4 col-sm-offset-8">
-          <button type="submit" class="btn btn-primary pull-right">Generate My Mad Lib</button>
+          <button type="submit" class="btn btn-lg btn-primary pull-right">Generate My Mad Lib</button>
         </div>
       </form>
     </div>
-  </div>
-  <div class="row" ng-hide="vm.displayForm">
-    <div class="col-sm-12 words">
+    <!--END Words Form-->
+
+    <!--BEGIN Words Text-->
+    <div class="col-sm-12 words" ng-hide="vm.displayForm">
       <div class="col-sm-12">
         <p>
           <span class="word">{{vm.name}}</span> was a <span class="word">{{vm.jobTitle}}</span> who loved technology.
@@ -116,13 +146,14 @@
       </div>
 
       <div class="col-sm-4 col-sm-offset-8">
-        <button type="button" ng-click="vm.toggleView()" class="btn btn-primary pull-right">Start Over</button>
+        <button type="button" ng-click="vm.reset()" class="btn btn-lg btn-primary pull-right">Start Over</button>
       </div>
     </div>
+    <!--END Words Text-->
 
   </div>
-
 </div>
+<pre>{{ wordsForm | json}}</pre>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>

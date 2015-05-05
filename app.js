@@ -9,6 +9,7 @@ angular
   .controller('Main', Main);
 
 function Main($scope) {
+
   var vm = this;
 
   vm.male = {
@@ -25,24 +26,47 @@ function Main($scope) {
     him: 'her'
   };
 
-  vm.gender = vm.male;
-  vm.name = 'Name';
-  vm.jobTitle = 'Job title';
-  vm.tediousTask = 'Tedious task';
-  vm.dirtyTask = 'Dirty task';
-  vm.celebrity = 'Celebrity';
-  vm.uselessSkill = 'Useless Skill';
-  vm.obnoxiousCelebrity = 'Obnoxious Celebrity';
-  vm.hugeNumber = 'Huge Number';
-  vm.adjective = 'Adjective';
-
   vm.displayForm = true;
 
-  vm.generateMadLib = function() {
-    vm.toggleView();
+  var initForm = function() {
+    vm.gender = vm.male;
+    vm.name = 'Name';
+    vm.jobTitle = 'Job Title';
+    vm.tediousTask = 'Tedious Task';
+    vm.dirtyTask = 'Dirty Task';
+    vm.celebrity = 'Celebrity';
+    vm.uselessSkill = 'Useless Skill';
+    vm.obnoxiousCelebrity = 'Obnoxious Celebrity';
+    vm.hugeNumber = 1000000;
+    vm.adjective = 'Adjective';
+    if ($scope.wordsForm) {
+      $scope.wordsForm.$submitted = false;
+    }
   };
 
-  vm.toggleView = function() {
+  var toggleView = function() {
     vm.displayForm = !vm.displayForm;
+  };
+
+
+  initForm();
+
+  vm.generateMadLib = function() {
+    if ($scope.wordsForm.$valid) {
+      toggleView();
+    }
+  };
+
+  vm.reset = function() {
+    initForm();
+    toggleView();
+  };
+
+  vm.isInvalid = function(field) {
+    return $scope.wordsForm.$submitted && $scope.wordsForm[field].$invalid;
+  };
+
+  vm.hasError = function(field, errorType) {
+    return $scope.wordsForm.$submitted && $scope.wordsForm[field].$error[errorType];
   };
 }
