@@ -63,10 +63,10 @@ function Main($scope) {
   };
 
   vm.isInvalid = function(field) {
-    return $scope.wordsForm.$submitted && $scope.wordsForm[field].$invalid;
+    return $scope.wordsForm && $scope.wordsForm.$submitted && $scope.wordsForm[field].$invalid;
   };
 
   vm.hasError = function(field, errorType) {
-    return $scope.wordsForm.$submitted && $scope.wordsForm[field].$error[errorType];
+    return $scope.wordsForm && $scope.wordsForm.$submitted && $scope.wordsForm[field].$error[errorType];
   };
 }
