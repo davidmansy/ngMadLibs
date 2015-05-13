@@ -5,10 +5,10 @@
  */
 
 angular
-  .module('app', ['ngMessages'])
-  .controller('Main', Main);
+  .module('ngMadLibsApp', ['ngMessages'])
+  .controller('MainController', MainController);
 
-function Main($scope) {
+function MainController($scope) {
 
   var vm = this;
 
