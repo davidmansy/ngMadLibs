@@ -5,7 +5,7 @@
  */
 
 angular
-  .module('ngMadLibsApp', ['ngMessages'])
+  .module('ngMadLibsApp', ['ngMessages', 'ngAnimate'])
   .controller('MainController', MainController);
 
 function MainController($scope) {

@@ -1,3 +1,4 @@
+/*GENERAL*/
 body {
   background-color: white;
   font-size: large;
@@ -6,11 +7,19 @@ body {
 .container {
   max-width: 70%;
   margin-top: 4em;
-  border: 1px solid black;
+  min-height: 485px;
 }
 
 .row {
   border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;}
+
+/*HEADER - FIRST ROW*/
+.header {
+  background-color: #ffffff;
+  z-index: 1000000;
+  border-top: 1px solid black;
 }
 
 .left-cell {
@@ -32,9 +41,66 @@ body {
   margin-top: -0.4em;
 }
 
+/*CONTENT - SECOND ROW*/
+.content {
+  position: relative;
+}
+
 .words {
   padding: 2em;
+  height: 400px;
 }
+
+/* transition */
+/*************/
+
+/*form*/
+.form.ng-hide-add { /* Start to disappear */
+  -webkit-transition: 0.1s all linear;
+  opacity: 1;
+}
+
+.form.ng-hide-add.ng.hide-add-active {
+  opacity: 0;
+}
+
+/*text*/
+.text {
+  z-index: 100000;
+  background-color: white;
+  position: absolute;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin-left: -1px;
+  width: 100.3%;
+}
+
+/*.text.ng-hide-remove { *//* Start to be displayed */
+  /*-webkit-transition: 0.5s all linear;*/
+  /*margin-top: -600px;*/
+/*}*/
+
+/*.text.ng-hide-remove.ng-hide-remove-active { *//* Finish to be displayed */
+  /*margin-top: 0;*/
+/*}*/
+
+.text.ng-hide-remove { /* Start to be displayed */
+  -webkit-animation: drop 1s linear;
+}
+
+@-webkit-keyframes drop {
+  from { margin-top: -600px;}
+  40% { margin-top: 0px;}
+  50% { margin-top: -200px;}
+  70% { margin-top: 0px;}
+  80% { margin-top: -100px;}
+  100% { margin-top: 0px; }
+}
+
+
+
+/*************/
 
 .word {
   text-decoration: underline;

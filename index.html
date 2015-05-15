@@ -10,19 +10,19 @@
 <body ng-controller="MainController as vm">
 <div class="container">
   <div class="row">
-    <div class="col-sm-3 left-cell">
+    <div class="col-sm-3 left-cell header">
       <img ng-src="assets/images/mad-lib-happy-face.png" alt="Happy Face" class="img-responsive center-block face"/>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-9 header">
       <img ng-src="assets/images/ng-mad-libs-logo.png" alt="Logo" class="img-responsive center-block logo"/>
 
       <div class="title">Automate This!</div>
     </div>
   </div>
-  <div class="row">
+  <div class="row content">
 
     <!--BEGIN Words Form-->
-    <div class="col-sm-12 words" ng-show="vm.displayForm">
+    <div class="col-sm-12 words form" ng-show="vm.displayForm">
       <form name="wordsForm" novalidate ng-submit="vm.generateMadLib()">
         <p>Provide the following words:</p>
 
@@ -121,7 +121,7 @@
     <!--END Words Form-->
 
     <!--BEGIN Words Text-->
-    <div class="col-sm-12 words" ng-hide="vm.displayForm">
+    <div class="col-sm-12 words text" ng-hide="vm.displayForm">
       <div class="col-sm-12">
         <p>
           <span class="word">{{vm.name}}</span> was a <span class="word">{{vm.jobTitle}}</span> who loved technology.
@@ -156,6 +156,7 @@
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="ngMadLibsApp.js"></script>
 </body>
 </html>
