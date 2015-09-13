@@ -76,14 +76,6 @@ body {
   width: 100.3%;
 }
 
-/*.text.ng-hide-remove { *//* Start to be displayed */
-  /*-webkit-transition: 0.5s all linear;*/
-  /*margin-top: -600px;*/
-/*}*/
-
-/*.text.ng-hide-remove.ng-hide-remove-active { *//* Finish to be displayed */
-  /*margin-top: 0;*/
-/*}*/
 
 .text.ng-hide-remove { /* Start to be displayed */
   -webkit-animation: drop 1s ease-in;
@@ -96,10 +88,6 @@ body {
   85% { margin-top: -20px;}
   100% { margin-top: 0px; }
 }
-
-
-
-/*************/
 
 .word {
   text-decoration: underline;
